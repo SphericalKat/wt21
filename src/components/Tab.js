@@ -26,11 +26,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 5,
+    paddingStart: 6,
+    paddingEnd: 6,
+    paddingTop: 4,
   },
   text: {
     fontSize: 12,
     paddingTop: 4,
+    fontFamily: 'Poppins-Regular',
   },
 });
 

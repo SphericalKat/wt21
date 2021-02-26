@@ -1,10 +1,13 @@
 import React from 'react';
-import { FlatList, StyleSheet, Dimensions, View } from 'react-native';
-import { Text, ListItem, Left, Body, Icon, Right, Title } from 'native-base';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  SafeAreaView,
+  StatusBar,
+  Text,
+} from 'react-native';
 import { Card } from 'react-native-paper';
-import { useState } from 'react/cjs/react.development';
-
-const { width } = Dimensions.get('screen');
 
 const Timeline = () => {
   const data = [
@@ -12,47 +15,47 @@ const Timeline = () => {
     {
       time: '11 am',
       content: 'Opening Ceremony',
+      color: '#A41BE4',
+    },
+    {
+      time: '12 pm',
+      content: 'Hackathon is Live!',
       color: '#FC257E',
     },
     {
-      time: '11 am',
-      content: 'Opening Ceremony',
+      time: '6 pm',
+      content: 'Ice Breaker Session',
+      color: '#A41BE4',
+    },
+    {
+      time: '9 pm',
+      content: 'Review 1',
       color: '#FC257E',
     },
     {
-      time: '11 am',
-      content: 'Opening Ceremony',
-      color: '#FC257E',
-    },
-    {
-      time: '11 am',
-      content: 'Opening Ceremony',
-      color: '#FC257E',
-    },
-    {
-      time: '11 am',
-      content: 'Opening Ceremony',
-      color: '#FC257E',
+      time: '11 pm',
+      content: 'Game Night',
+      color: '#FC9F25',
     },
     { name: 'Day 2', header: true },
     {
       time: '11 am',
-      content: 'Opening Ceremony',
+      content: 'Opening Ceremony1',
       color: '#FC257E',
     },
     {
       time: '11 am',
-      content: 'Opening Ceremony',
+      content: 'Opening Ceremony2',
       color: '#FC257E',
     },
     {
       time: '11 am',
-      content: 'Opening Ceremony',
+      content: 'Opening Ceremony3',
       color: '#FC257E',
     },
     {
       time: '11 am',
-      content: 'Opening Ceremony',
+      content: 'Opening Ceremony4',
       color: '#FC257E',
     },
   ];
@@ -67,9 +70,9 @@ const Timeline = () => {
   const renderItem = ({ item }) => {
     if (item.header) {
       return (
-        <ListItem itemDivider>
+        <View style={{ padding: 16, backgroundColor: 'white' }}>
           <Text style={styles.header}>{item.name}</Text>
-        </ListItem>
+        </View>
       );
     } else if (!item.header) {
       return (
@@ -86,12 +89,16 @@ const Timeline = () => {
     }
   };
   return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.name}
-      stickyHeaderIndices={[0]}
-    />
+    <SafeAreaView>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" />
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.content ?? item.name}
+        stickyHeaderIndices={[0]}
+        style={{ backgroundColor: 'white' }}
+      />
+    </SafeAreaView>
   );
 };
 

@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNav from './components/BottomTabNav';
@@ -15,7 +15,6 @@ import BottomTabNav from './components/BottomTabNav';
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" />
       <NavigationContainer>
         <BottomTabNav />
       </NavigationContainer>
