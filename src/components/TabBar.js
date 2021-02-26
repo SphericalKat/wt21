@@ -14,13 +14,8 @@ const TabBar = ({ state, navigation }) => {
     Info: '#FC257E',
   };
 
-  const renderColor = (currentRoute) => {
-    if (currentRoute !== selected) {
-      return '#000000';
-    }
-
-    return colorMap[currentRoute];
-  };
+  const renderColor = (currentRoute) =>
+    currentRoute !== selected ? '#000' : colorMap[currentRoute];
 
   const handleClick = (currentRoute) => {
     setSelected(currentRoute);
