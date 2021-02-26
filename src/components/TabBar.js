@@ -57,8 +57,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: width * 0.9,
     flexDirection: 'row',
-    borderRadius: 10,
+    borderRadius: 9.42,
     padding: 5,
+    elevation: 4,
   },
 });
 
